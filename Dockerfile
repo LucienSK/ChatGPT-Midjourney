@@ -16,8 +16,8 @@ FROM base AS builder
 RUN apk update && apk add --no-cache git
 
 ENV OPENAI_API_KEY=""
-ENV MIDJOURNEY_PROXY_URL="https://172.67.160.57:443"
-ENV CODE="yunyang2023nian"
+ENV MIDJOURNEY_PROXY_URL=""
+ENV CODE=""
 
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -32,8 +32,8 @@ RUN apk add proxychains-ng
 
 ENV PROXY_URL=""
 ENV OPENAI_API_KEY=""
-ENV MIDJOURNEY_PROXY_URL="https://172.67.160.57:443"
-ENV CODE="yunyang2023nian"
+ENV MIDJOURNEY_PROXY_URL=""
+ENV CODE=""
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
